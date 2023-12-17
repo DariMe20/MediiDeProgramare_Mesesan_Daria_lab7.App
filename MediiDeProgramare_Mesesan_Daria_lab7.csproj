@@ -29,6 +29,12 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
+		
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'net6.0-android' ">
+		<AndroidTargetSdkVersion>31</AndroidTargetSdkVersion>
+		<AndroidMinSdkVersion>21</AndroidMinSdkVersion>
+	</PropertyGroup>
+
 
 	<ItemGroup>
 		<!-- App Icon -->
