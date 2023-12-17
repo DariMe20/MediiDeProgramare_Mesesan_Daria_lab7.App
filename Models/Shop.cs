@@ -5,16 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLiteNetExtensions.Attributes;
+
 namespace MediiDeProgramare_Mesesan_Daria_lab7.Models
 {
-    public class ShopList
+    public class Shop
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        [MaxLength(250), Unique]
-        public string Description { get; set; }
-        public DateTime Date { get; set; }
-        [ForeignKey(typeof(Shop))]
-        public int ShopID { get; set; }
+        public string ShopName { get; set; }
+        public string Adress { get; set; }
+        public string ShopDetails
+        {
+            get
+            {
+                return ShopName + " "+Adress;} }
+        [OneToMany]
+        public List<ShopList> ShopLists { get; set; }
+
     }
+
 }
